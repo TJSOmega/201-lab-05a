@@ -9,10 +9,10 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  var sum = a + b;
-  var str = `The sum of ${a} and ${b} is ${sum}.`
+  var totalSum = a + b;
+  var str = `The sum of ${a} and ${b} is ${totalSum}.`
 
-  return [sum, str];
+  return [totalSum, str];
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -54,12 +54,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sum = a + b + c
-  var prod = a * b * c
-  var str1 = `${a} and ${b} and ${c} sum to 16.`
-  var str2 = `The product of ${a} and ${b} and ${c} is 140.`
 
-  return [sum, prod, str1, str2]
+  var partSum = sum(a, b)[0];
+  var totalSum = sum(c, partSum)[0];
+  var prod = multiply(a, multiply(b,c)[0])[0];
+  var str1 = `${a} and ${b} and ${c} sum to ${totalSum}.`;
+  var str2 = `The product of ${a} and ${b} and ${c} is ${prod}.`;
+
+  return [totalSum, prod, str1, str2]
 
 }
 
